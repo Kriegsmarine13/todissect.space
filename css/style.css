@@ -1,0 +1,200 @@
+body{
+  background: black;
+    color: white;
+}
+
+img{
+}
+
+.main-logo {
+  margin-top: 5%;
+}
+
+.pass-field-main {
+  margin-left: -10%;
+}
+
+.img-mini{
+  margin-top: 0;
+}
+
+form {
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  position: relative;
+}
+
+.input1 {
+  height: 30px;
+  width: 250px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+
+.input2 {
+  height: 30px;
+  width: 175px;
+  border: 3px solid white;
+  border-radius: 20px;
+  margin-top: 20px;
+  background:  grey;
+  font-weight: bold;
+  color: white;
+  font-size: 15px;
+}
+
+.input2:hover{
+  background: white;
+  color: grey;
+}
+
+h1{
+  color: white;
+  text-align: center;
+  font-size: 50px;
+}
+
+.menu-block{
+  display: block;
+  float: left;
+  color: white;
+  width: 20%;
+  font-size: 20px;
+  font-family: "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+}
+
+li{
+  margin-left: -35px;
+  margin-top: 10%;
+}
+
+.main-block{
+  display: block;
+  text-align: center;
+  border: 5px solid white;
+  border-radius: 20px;
+  float: left;
+  margin-left: 30px;
+  width: 70%;
+  padding: 10px 15px;
+}
+
+.inner-inner-news-body{
+    display: block;
+    text-align: center;
+    border: 5px solid white;
+    border-radius: 20px;
+    float: left;
+    margin-left: 30px;
+    width: 70%;
+    padding: 10px 15px;
+}
+
+.main-post{
+  display: inline-block;
+  float: none;
+  width: 95%;
+  border: 1px solid white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: #e3dbdb;
+  text-align: justify;
+  position: relative;
+}
+
+.main-title {
+  display: inline-block;
+  width: 40%;
+  text-align: center;
+  float: right;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 5%;
+  margin-bottom: 2%;
+}
+
+.main-img-mini {
+  width: 50%;
+  display: inline-block;
+  float: left;
+}
+
+.main-img-mini img{
+  width: 100%;
+  max-height: 40%;
+  padding: 5px;
+}
+
+.main-descr {
+  display: inline-block;
+  width: 40%;
+  text-align: justify;
+  float: right;
+  clear: right;
+  margin-right: 5%;
+  margin-bottom: 2%;
+}
+
+.main-link {
+    display: inline-block;
+    float: right;
+}
+
+.main-timestamp {
+  display: inline-block;
+  float: right;
+  clear: right;
+  margin-right: 5%;
+  margin-bottom: 2%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+  font-family: "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+}
+
+a:hover{
+  background: #e3e3e3;
+  color: black;
+}
+
+.logo-menu {
+
+}
+
+.logo-menu:hover {
+  text-decoration: none;
+  background-color: black;
+}
+
+.admin-login {
+  display: block;
+  left: 25%;
+  top: 25%;
+  color: white;
+}
+
+.artists-general-panel {
+    padding: 20px;
+    display: inline-block;
+    width: 70%;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.artists-personal-panel{
+    padding: 5px;
+    display: inline-block;
+    width: 30%;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    border-radius:10px;
+}

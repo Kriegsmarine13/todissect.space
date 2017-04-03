@@ -1,0 +1,45 @@
+body {
+}
+
+.left-menu {
+    display: block;
+    float: left;
+    border: 1px solid darkred;
+    width: 15%;
+}
+
+.left-menu ul {
+    padding: 5px;
+}
+
+.left-menu li {
+    list-style-type: none;
+}
+
+.main-menu {
+    display: block;
+    float: right;
+    min-width:75%;
+    width: auto;
+    border: 2px solid red;
+    height: 80%;
+    margin-left: 20px;
+    padding: 20px;
+}
+
+.options-menu {
+    display: block;
+    float: left;
+    clear: left;
+    border: 1px solid green;
+    width: 15%;
+    margin-top: 15px;
+}
+
+.options-menu ul {
+    padding: 5px;
+}
+
+.options-menu li {
+    list-style-type: none;
+}
