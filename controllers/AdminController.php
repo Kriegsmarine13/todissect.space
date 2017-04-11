@@ -7,27 +7,36 @@ class AdminController
     public function actionIndex() {
 
         require_once(ROOT.'/views/admin/index.php');
-        echo "actionIndex";
         return true;
 
     }
 
     public static function actionLogin() {
-        echo "actionLogin";
-        $db = Db::getConnection();
+        Admin::login();
+        return true;
+    }
 
-        $password = $_POST['password'];
-        $login = $_POST['login'];
-        $sql = $db->prepare('SELECT pass FROM kaichou WHERE login= ?');
-        $sql->execute(array($login));
-        foreach($sql as $row) {
-            $hash = $row['pass'];
-        }
-        $passCheck = password_verify($password, $hash);
+    public function actionPanel() {
 
-        if($passCheck) {
-            header('Location: /admin');
-        } else {echo"Invalid Password";}
+        require_once(ROOT.'/views/admin/main.php');
+        Admin::authCheck();
+        return true;
+
+    }
+
+    public function actionView() {
+        echo "actionView in AdminController";
+        return true;
+    }
+
+    public function actionAdd_news() {
+        require_once(ROOT.'/views/admin/add_news.php');
+        return true;
+    }
+
+    public function actionSend_News() {
+        Admin::sendNewsData();
+        return true;
     }
 
 }

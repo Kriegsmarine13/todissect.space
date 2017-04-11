@@ -25,10 +25,10 @@
 <div class="main-block">
     <?php foreach($newsList as $newsItem):?>
     <div class=\"main-post\">
-        <div class=\"main-img-mini\"><img src=\"<?php echo $newsItem['img'];?>\"></div>
+        <div class=\"main-img-mini\"><img src="<?php echo $newsItem['img'];?>"></div>
         <div class=\"main-title\"><?php echo $newsItem['title'];?></div>
         <div class=\"main-descr\"><?php echo $newsItem['s_descr'];?></div>
-        <a class='main-link' href="<?php echo $newsItem['link'];?>">Читать далее</a>
+        <a class='main-link' href="/news/<?php echo $newsItem['link'];?>">Читать далее</a>
         <div class=\"main-timestamp\"><?php echo $newsItem['timestamp'];?></div>
     </div><br>
     <?php endforeach;?>

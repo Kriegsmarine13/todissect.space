@@ -1,6 +1,3 @@
-<?php
-?>
-
 <html>
 <head>
     <title>Admin DOLLARS</title>
@@ -8,7 +5,7 @@
     <link type="text/css" rel="stylesheet" href="../../css/style.css">
 </head>
 <div class="admin-login">
-    <form action="../../admin/adm_check.php" method="POST">
+    <form action="/verify" method="POST">
         <label for="login">
             LOGIN: <input type="text" name="login" id="login">
         </label>

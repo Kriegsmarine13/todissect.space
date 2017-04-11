@@ -1,5 +1,7 @@
 AddDefaultCharset utf-8
 
+DirectoryIndex welcome.php
+
 RewriteEngine on
 RewriteBase /
 

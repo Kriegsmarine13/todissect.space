@@ -1,14 +1,11 @@
-<?php
-session_start();
-?>
 <html>
 <head>
     <title>Dollars Admin Panel</title>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
-<h1><?php echo ("Success! Welcome, ").$_SESSION['name']; ?> <div align="right"><a href="../main.php">Main Page</a></div> </h1>
+<h1><div align="right"><a href="../../views/admin/main.php">Main Page</a></div> </h1>
 <div class="left-menu">
     <ul>
         <li><a href="first_menu/add_news.php">Добавление новости</a></li>
@@ -19,30 +16,26 @@ session_start();
 
 
 <div class="main-menu">
-    <form enctype="multipart/form-data" action="readyNewsScript.php" method="POST">
+    <form enctype="multipart/form-data" action="/admin/Send_news" method="POST">
         <label for="link">
             URL: <input type="text" name="link" id="link">
         </label>
         <br><br>
-        <label for="img_mini">
+        <label for="img">
             <input type="hidden" name="MAX_FILE_SIZE" value="5000000">
-            Preview Image: <input type="file" name="img_mini" id="img_mini">
+            News Image: <input type="file" name="img" id="img">
         </label><br>
-        <br><br>
-        <label for="img_main">
-            Main Image: <input type="file" name="img_main" id="img_main">
-        </label>
         <br><br>
         <label for="title">
             Title: <input type="text" name="title" id="title">
         </label>
         <br><br>
-        <label for="small_descr">
-            Short Description: <input type="text" name="small_descr" id="small_descr">
+        <label for="s_descr">
+            Short Description: <input type="text" name="s_descr" id="s_descr">
         </label>
         <br><br>
-        <label for="descr">
-            News' Body:<br> <textarea name="descr" rows="20" cols="120">
+        <label for="f_descr">
+            News' Body:<br> <textarea name="f_descr" rows="20" cols="120">
                 Enter HTML here...
             </textarea>
         </label>
