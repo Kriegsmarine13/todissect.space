@@ -9,6 +9,7 @@ class NewsController
 
         $newsList = array();
         $newsList = News::getNewsList();
+        $total = News::getNumPages();
 
         require_once(ROOT.'/views/news/index.php');
         return true;
@@ -19,8 +20,7 @@ class NewsController
 
         $newsItem = News::getNewsItemByLink($link);
 
-        echo 'actionView';
-
+        require_once(ROOT.'/views/news/singlenews.php');
         return true;
     }
 

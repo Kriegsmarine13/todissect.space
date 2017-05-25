@@ -18,9 +18,28 @@ class Main
         $passCheck = password_verify($password, $hash);
 
         if($passCheck) {
+            setcookie("Authorized", $login, 0, '/', 'todissect.space');
             header('Location: /news');
-        } else {echo"Invalid Password";}
+        } else {
+            header('Refresh:2 , /welcome');
+        echo "Invalid Password";
+        }
 
+    }
+
+    public static function register() {
+        $db = Db::getConnection();
+
+        $login = $_POST['login'];
+        $login = $db->quote($login);
+        $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+        $password = $db->quote($password);
+        $mail =  $_POST['email'];
+        $mail = $db->quote($mail);
+        $registered = $db->query('INSERT INTO users (login, pass, email) VALUES ('.$login.', '.$password.', '.$mail.')');
+        if($registered) {
+            header('Location: /welcome');
+        } else { echo "EЯЯОЯ";}
     }
 
 }

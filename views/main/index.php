@@ -9,7 +9,9 @@
   <body>
 
     <div align="center">
-    <img class="main-logo" src="../img/dollars_logo.jpg" alt="dollars_logo">
+        <a href ="/registration">
+            <img class="main-logo" src="../img/dollars_logo.jpg" alt="dollars_logo">
+        </a>
     </div>
     <form action="../login" method="post">
         <label class="pass-field-main" for="login">

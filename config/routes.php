@@ -1,9 +1,19 @@
 <?php
 return array(
+    //NEWS PAGE ROUTES
+    'news/page/([0-9]+)' => 'news/index/$1',
     'news/([a-zA-Z0-9_-]+)' => 'news/view/$1', //path to one article
     'news' => 'news/index',  //actionIndex in NewsController
+    //STARTING PAGE ROUTES
     'welcome' => 'main/index',  //loginPage
     'login' => 'main/verify', //calling actionVerify  to login
+    'registration' => 'main/registration',
+    'register' => 'main/register',
+    //ARTISTS PAGE ROUTES
+    'artists/join' => 'artists/join',
+    'artists/upload' => 'artists/upload',
+    'artists' => 'artists/index',
+    //========ADMIN ROUTES
     'admin' => 'admin/index', // admin login page
     'verify' => 'admin/login', //calling actionLogin in AdminController
     'panel' => 'admin/panel',
