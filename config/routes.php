@@ -11,7 +11,9 @@ return array(
     'register' => 'main/register',
     //ARTISTS PAGE ROUTES
     'artists/join' => 'artists/join',
+    'artists/addArtist' => 'artists/addArtist',
     'artists/upload' => 'artists/upload',
+    'artists/user/([a-zA-Z0-9_-]+)' => 'artists/view/$1',
     'artists' => 'artists/index',
     //========ADMIN ROUTES
     'admin' => 'admin/index', // admin login page

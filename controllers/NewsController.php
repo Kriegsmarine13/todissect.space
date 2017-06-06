@@ -17,11 +17,15 @@ class NewsController
 
     public function actionView($link)
     {
-
         $newsItem = News::getNewsItemByLink($link);
-
-        require_once(ROOT.'/views/news/singlenews.php');
-        return true;
+        if(!$newsItem) {
+            header('HTTP/1.1 404 Not Found');
+            require ROOT.'/404.html';
+            exit;
+        } else {
+            require_once(ROOT . '/views/news/singlenews.php');
+            return true;
+        }
     }
 
 }

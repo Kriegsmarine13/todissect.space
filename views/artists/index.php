@@ -8,9 +8,16 @@
     <body>
 
         <?php include (ROOT.'/views/layouts/side-menu.php'); ?>
-        <a class="join-btn" href="/artists/join">Присоединиться</a>
+        <?php echo $checkArtists;?>
         <div class="main-block">
-
+            <?php foreach ($artistsList as $artistsItem); ?>
+            <div class="artist-item">
+                <div class="artist-item-profile-photo">
+                    <img src="../../<?php echo $artistsItem['profile_image'];?>">
+                </div>
+                <a class="artist-item-name" href="/artists/<?php echo $artistsItem['nickname']; ?>"><?php echo $artistsItem['nickname'];?></a>
+            </div>
         </div>
+        <?php include(ROOT.'/views/layouts/vidget.php');?>
     </body>
 </html>

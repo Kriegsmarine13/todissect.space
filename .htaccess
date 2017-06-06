@@ -2,6 +2,8 @@ AddDefaultCharset utf-8
 
 DirectoryIndex welcome.php
 
+Options -Indexes
+
 RewriteEngine on
 RewriteBase /
 
@@ -9,3 +11,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^(.*)$ index.php
+
+ErrorDocument 401 /401.html
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html

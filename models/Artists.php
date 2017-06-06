@@ -3,23 +3,25 @@
 class Artists
 {
 
-    public function getArtists() {
+    public static function getArtists() {
         $db = Db::getConnection();
+
+        $artistsList = array();
 
         $result = $db->query('SELECT * '.
             'FROM users '.
             'INNER JOIN artists '.
-            'ON users.login = artists.login');
+            'ON users.login = artists.login '.
+            'WHERE isArtist = 1');
 
         $i = 0;
         while($row = $result->fetch()) {
-            $artistsItem[$i]['id'] = $row['id'];
-            $artistsItem[$i]['login'] = $row['login'];
-            $artistsItem[$i]['name'] = $row['name'];
-            $artistsItem[$i]['profile_img'] = $row['profile_img'];
-            $artistsItem[$i]['info'] = $row['info'];
+            $artistsList[$i]['nickname'] = $row['nickname'];
+            $artistsList[$i]['profile_image'] = $row['profile_image'];
+            $artistsList[$i]['info'] = $row['info'];
             $i++;
         }
+        return $artistsList;
     }
 
     public static function uploadImage() {
@@ -63,5 +65,54 @@ class Artists
                 header('Content-type: application/json');
                 echo json_encode($result);
             }
+    }
+
+    public static function addArtist() {
+        $db = Db::getConnection();
+
+        $login = $_COOKIE['Authorized'];
+        $name = $_POST['nickname'];
+        $info = $_POST['info'];
+
+        $tempFile = $_FILES['img']['tmp_name'];
+
+        $targetPath = ROOT . '/img/profiles/' . $name;
+
+        $createDir = mkdir("$targetPath"); // Создаем директорию под изображения данного пользователя
+
+        $targetFile = $targetPath . '/' . $_FILES['img']['name'];
+
+        $filePath = 'img/profiles/'. $name . '/' .basename($_FILES['img']['name']);
+
+        move_uploaded_file($tempFile, $targetFile);
+
+        $addArtist = $db->query("INSERT INTO artists (login, nickname, profile_image,  info) VALUES ('$login', '$name', '$filePath', '$info')");
+        if($addArtist) {
+            header("Location: /artists");
+        } else {die("Что-то пошло не так");}
+    }
+
+    public static function checkArtists() {
+        $db=Db::getConnection();
+        $login = $_COOKIE['Authorized'];
+        if($login) {
+            $sql = $db->prepare("SELECT isArtist, nickname FROM users INNER JOIN artists ON users.login = artists.login WHERE users.login = '$login'");
+            $sql->execute();
+            $i = 0;
+            $arr = array();
+            while ($res = $sql->fetch()) {
+                $arr[$i]['isArtist'] = $res['isArtist'];
+                $arr[$i]['nickname'] = $res['nickname'];
+            }
+            if($arr[0]['isArtist'] == '1') {
+                $button = "<a class=\"join-btn\" href=\"/artists/user/".$arr[0]['nickname']."\">Мой профиль</a>";
+            } else {
+                $button = "<a class=\"join-btn\" href=\"/artists/join\">Присоединиться</a>";
+            }
+        } else {
+            $button = "<a class=\"join-btn\" href=\"/artists/join\">Присоединиться</a>";
+        }
+        $checkArtists = $button;
+        return $checkArtists;
     }
 }

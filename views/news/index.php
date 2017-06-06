@@ -11,6 +11,7 @@
 </div>
 <h1>Добро пожаловать в секту</h1>
 <?php include(ROOT.'/views/layouts/side-menu.php'); ?>
+
 <div class="main-block" id="main-block">
     <?php foreach($newsList as $newsItem):?>
     <div class="main-post">
@@ -25,6 +26,7 @@
         <a href="/news/page/<?php echo $i; ?>"><?php echo $i ?></a>
     <?php endfor;?>
 </div>
+<?php include(ROOT.'/views/layouts/vidget.php');?>
 </body>
 
 </html>

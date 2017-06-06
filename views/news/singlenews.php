@@ -18,5 +18,6 @@
             <a class="main-link" href="javascript:history.go(-1)">Вернуться назад</a>
         </div><br>
 </div>
+<?php include(ROOT.'/views/layouts/vidget.php');?>
 </body>
 </html>

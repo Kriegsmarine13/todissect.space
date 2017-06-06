@@ -6,7 +6,19 @@ class ArtistsController
 
     public function actionIndex(){
 
+        $artistsList = array();
+        $artistsList = Artists::getArtists();
+        $checkArtists = Artists::checkArtists();
+
+
         require_once (ROOT.'/views/artists/index.php');
+        return true;
+    }
+
+    public function actionView() {
+
+
+        require_once (ROOT.'/views/artists/singleartist.php');
         return true;
     }
 
@@ -24,6 +36,12 @@ class ArtistsController
     public function actionUpload() {
 
         Artists::uploadImage();
+        return true;
+    }
+
+    public static function actionaddArtist() {
+
+        Artists::addArtist();
         return true;
     }
 }
