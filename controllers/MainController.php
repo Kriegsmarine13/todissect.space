@@ -6,8 +6,11 @@ class MainController
 
     public static function actionIndex() {
 
-        require_once(ROOT.'/views/main/index.php');
+        if($_COOKIE['Authorized']){
+            header('Location: /news');
+        }
 
+        require_once(ROOT.'/views/main/index.php');
 
         return true;
 

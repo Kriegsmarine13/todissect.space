@@ -115,4 +115,5 @@ class Artists
         $checkArtists = $button;
         return $checkArtists;
     }
+
 }

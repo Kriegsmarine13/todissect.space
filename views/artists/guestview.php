@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title> DOLLARS Edit mode </title>
+    <title> DOLLARS view mode </title>
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="../../css/style.css"/>
 </head>

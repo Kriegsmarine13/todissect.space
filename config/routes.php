@@ -14,6 +14,7 @@ return array(
     'artists/addArtist' => 'artists/addArtist',
     'artists/upload' => 'artists/upload',
     'artists/user/([a-zA-Z0-9_-]+)' => 'artists/view/$1',
+    'artists/([a-zA-Z0-9_-]+)' => 'artists/guestView/$1',
     'artists' => 'artists/index',
     //========ADMIN ROUTES
     'admin' => 'admin/index', // admin login page
