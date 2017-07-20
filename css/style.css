@@ -207,13 +207,14 @@ a:hover{
   text-align: center;
   float: right;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 40px;
   margin-right: 5%;
   margin-bottom: 2%;
 }
 
 .single-img > img {
-  width: 100%;
+  width: 90%;
+  padding: 5%;
   display: inline-block;
   float: left;
 }

@@ -87,12 +87,15 @@ public static function sendNewsData() {
     }
 //    print_r($_FILES);
     date_default_timezone_set('Europe/Moscow');
+    $link = $_POST['link'];
+    $link = str_replace(' ', '-', $link);
     $timestampPost = date("Y-m-d H:i:s");
-    $postQuery = $db->prepare("INSERT INTO news(`id`, `title`, `link`, `img`, `s_descr`, `f_descr`, `timestamp`) VALUES ('', '".$_POST['title']."','".$_POST['link']."','".$target_file."','".$_POST['s_descr']."','".$_POST['f_descr']."' ,'".$timestampPost."')");
+    $postQuery = $db->prepare("INSERT INTO news(`id`, `title`, `link`, `img`, `s_descr`, `f_descr`, `timestamp`) VALUES ('', '".$_POST['title']."','".$link."','".$target_file."','".$_POST['s_descr']."','".$_POST['f_descr']."' ,'".$timestampPost."')");
     $postQuery->execute();
 //    echo $target_file;
     header("Refresh: 2, ../panel");
-    echo("News posted, redirecting to a main page");
+    echo("News posted, redirecting to a main page<br>");
+    echo("<a href='../panel'>Вернуться на главную страницу<a/>");
 
 }
 
