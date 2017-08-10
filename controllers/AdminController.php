@@ -1,5 +1,6 @@
 <?php
 include_once(ROOT.'/models/Admin.php');
+include_once(ROOT.'/models/News.php'); //DRY! Using method from News.php to get news data
 
 class AdminController
 {
@@ -37,6 +38,28 @@ class AdminController
     public function actionSend_News() {
         Admin::sendNewsData();
         return true;
+    }
+
+    public function actionList() {
+
+        $newsList = array();
+        $newsList = News::getNewsList();
+
+        require_once(ROOT.'/views/admin/get_list.php');
+        return true;
+    }
+
+    public function actionEditNews() {
+        $data = array();
+        $data = Admin::editNewsData();
+
+        require_once(ROOT.'/views/admin/edit_news.php');
+        return true;
+    }
+
+    public function actionUpdate_data() {
+        $data = array();
+        Admin::updateNewsData();
     }
 
 }

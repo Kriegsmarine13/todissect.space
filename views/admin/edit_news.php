@@ -16,26 +16,32 @@
 
 
 <div class="main-menu">
-    <form enctype="multipart/form-data" action="/admin/Send_news" method="POST">
-        <label for="link">
-            URL: <input type="text" name="link" id="link">
+    <form enctype="multipart/form-data" action="/admin/update" method="POST">
+        <input type="hidden" name="id" value="<?php echo $data['id']; ?>"
+            <label for="link">
+            URL: <input type="text" name="link" id="link" value="<?php echo $data['link'];?>">
         </label>
         <br><br>
         <label for="img">
             <input type="hidden" name="MAX_FILE_SIZE" value="5000000">
-            News Image: <input type="file" name="img" id="img">
+            News Image: <div class="edit-menu">
+                <img src="../../<?php echo $data['img']; ?>"> (Текущее изображение)
+            </div>
+            <br>
+            <input type="file" name="img" id="img">
         </label><br>
         <br><br>
         <label for="title">
-            Title: <input type="text" name="title" id="title">
+            Title: <input type="text" name="title" id="title" value="<?php echo $data['title']; ?>">
         </label>
         <br><br>
         <label for="s_descr">
-            Short Description: <input type="text" name="s_descr" id="s_descr">
+            Short Description: <input type="text" name="s_descr" id="s_descr" value="<?php echo $data['s_descr']; ?>">
         </label>
         <br><br>
         <label for="f_descr">
             News' Body:<br> <textarea name="f_descr" rows="20" cols="120">
+                <?php echo $data['f_descr']; ?>
             </textarea>
         </label>
         <br><br>

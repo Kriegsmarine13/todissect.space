@@ -9,7 +9,7 @@
 <div class="left-menu">
     <ul>
         <li><a href="/admin/add_news.php">Добавление новости</a></li>
-        <li><a href="first_menu/news_list.php">Список новостей</a></li>
+        <li><a href="/admin/list">Список новостей</a></li>
         <li>Вариант 3</li>
     </ul>
 </div></div>

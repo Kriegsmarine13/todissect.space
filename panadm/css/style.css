@@ -20,9 +20,8 @@ body {
     display: block;
     float: right;
     min-width:75%;
-    width: auto;
+    width: 80%;
     border: 2px solid red;
-    height: 80%;
     margin-left: 20px;
     padding: 20px;
 }
@@ -42,4 +41,41 @@ body {
 
 .options-menu li {
     list-style-type: none;
+}
+
+.news-admin {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    border: 1px solid darkmagenta;
+    margin-bottom:2%;
+}
+
+.admin-options {
+    display: inline-block;
+    float: left;
+    width: 33%;
+    border-right: 2px solid black;
+}
+
+.admin-main-info {
+    display: inline-block;
+    float: left;
+    width: 33%;
+    border-right:2px solid black;
+}
+
+.admin-image {
+    display: inline-block;
+    float: left;
+    width: 32%;
+    padding: 5px;
+}
+
+.admin-image img {
+    width:100%;
+}
+
+.edit-menu img {
+    width: 30%;
 }

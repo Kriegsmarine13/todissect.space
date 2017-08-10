@@ -89,7 +89,11 @@ class Artists
         $addArtist = $db->query("INSERT INTO artists (login, nickname, profile_image,  info) VALUES ('$login', '$name', '$filePath', '$info')");
         if($addArtist) {
             header("Location: /artists");
-        } else {die("Что-то пошло не так");}
+        } else { die("Что-то пошло не так");
+//            variables check
+//            echo $login."<br>".$name."<br>".$filePath."<br>".$info."<br>";
+        }
+
     }
 
     public static function checkArtists() {

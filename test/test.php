@@ -1,6 +1,7 @@
 <?php
-echo password_hash("mainpass",  PASSWORD_DEFAULT);
+echo password_hash("looktothesky1349",  PASSWORD_DEFAULT);
 
+echo "<br>";
 for($i = 0; $i <1000; $i++) {
     if ($i % 3 == 0 && $i % 5 !== 0) { //кратные 3 и не кратные 5
         $checkSum = str_split($i); //приводим к массиву

@@ -17,10 +17,12 @@ return array(
     'artists/([a-zA-Z0-9_-]+)' => 'artists/guestView/$1',
     'artists' => 'artists/index',
     //========ADMIN ROUTES
-    'admin' => 'admin/index', // admin login page
+    'panel/([a-z]+)' => 'admin/view/$1', //call to admin panel buttons
     'verify' => 'admin/login', //calling actionLogin in AdminController
     'panel' => 'admin/panel',
-    'panel/([a-z]+)' => 'admin/view/$1', //call to admin panel buttons
     'admin/Send_news' => 'admin/Send_news',
-    'product' => 'product/list', //actionList in ProductController
+    'admin/list' => 'admin/List',
+    'admin/edit' => 'admin/EditNews',
+    'admin/update' => 'admin/Update_data',
+    'admin' => 'admin/index', // admin login page
 );

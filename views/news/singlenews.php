@@ -12,8 +12,9 @@
 <div class="main-block">
         <div class="main-post">
             <div class="single-title"><?php echo $newsItem['title'];?></div>
-            <div class="single-img"><img src="../<?php echo $newsItem['img'];?>"></div>
+
             <div class="single-descr"><?php echo $newsItem['f_descr'];?></div>
+            <div class="single-img"><img src="../<?php echo $newsItem['img'];?>"></div>
             <div class="main-timestamp"><?php echo $newsItem['timestamp'];?></div>
             <a class="main-link" href="javascript:history.go(-1)">Вернуться назад</a>
         </div><br>
