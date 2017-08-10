@@ -185,4 +185,23 @@ class Admin
         } else { echo "NEPORYADOK";}
     }
 
+    public static function deleteNews() {
+        $db = Db::getConnection();
+        //I wish one day I can return data instead of constantly wanking URIs
+        $page = $_SERVER['REQUEST_URI']; //getting uri
+        $getPage = explode("/", $page); // dividing by "/"
+        $pageNum = $getPage[2]; //looking for number
+
+        $delete = $db->query("DELETE FROM news WHERE link = '$pageNum'");
+
+        if($delete) {
+            header("Refresh: 3, ../../admin/list");
+            echo "News deleted, returning to News List";
+            echo "<br><a href='../panel'Fucking warnings! Get back home!</a>";
+        } else {
+            echo "BRAIN ISSUES, STAY TUNED";
+        }
+
+    }
+
 }

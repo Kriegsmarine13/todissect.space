@@ -23,7 +23,7 @@
             <ul>
                 <li><a href="/admin/edit/<?php echo $newsItem['link']?>">Изменить новость</a></li>
                 <li><a href="/admin/hide">Скрыть/показать новость</a></li>
-                <li><a href="/admin/delete_news">Удалить новость</a></li>
+                <li><a href="/admin/<?php echo $newsItem['link']?>/delete">Удалить новость</a></li>
             </ul>
         </div>
         <div class="admin-main-info">

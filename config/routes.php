@@ -24,5 +24,6 @@ return array(
     'admin/list' => 'admin/List',
     'admin/edit' => 'admin/EditNews',
     'admin/update' => 'admin/Update_data',
+    'admin/([a-zA-Z0-9_-]+)/delete' => 'admin/Delete_news',
     'admin' => 'admin/index', // admin login page
 );

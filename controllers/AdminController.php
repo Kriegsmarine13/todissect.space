@@ -62,4 +62,9 @@ class AdminController
         Admin::updateNewsData();
     }
 
+    public function actionDelete_news() {
+        Admin::deleteNews();
+        return true;
+    }
+
 }
