@@ -18,9 +18,15 @@ class Admin
         $passCheck = password_verify($password, $hash);
 
         if($passCheck) {
-            setcookie("Name", $login, time()+60*60, '/', 'todissect.space');
+            setcookie("Name", $login, time()+60*60*24, '/', 'todissect.space');
             header('Location: /panel');
-        } else {echo"Invalid Password";}
+            $status = 'SUCCESSFUL';
+            return $status;
+        } else {
+            echo"Invalid Password";
+            $status = 'FAILED';
+            return $status;
+        }
 
     }
 
@@ -28,6 +34,34 @@ class Admin
         if(!$_COOKIE["Name"]){
             header('Refresh: 0,Location: /admin');
         }
+    }
+
+    public static function logTry() {
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+        $ip = self::getUserIP();
+        $status = self::login();
+        date_default_timezone_set("UTC+3");
+        $timstamp = date(DATE_RFC822);
+        $fopen = fopen("log.txt","a+");
+        fwrite($fopen, "\r\n".$status." Login: ".$login."; Password: ".$password."; IP: ".$ip."; at ".$timstamp);
+        $fclose = fclose($fopen);
+    }
+
+    public static function getUserIP() {
+
+        $client = @$_SERVER['HTTP_CLIENT_IP'];
+        $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+        $remote = @$_SERVER['REMOTE_ADDR'];
+
+        if(filter_var($client, FILTER_VALIDATE_IP)){
+            $ip = $client;
+        } elseif(filter_var($forward, FILTER_VALIDATE_IP)){
+            $ip = $forward;
+        } else {
+            $ip = $remote;
+        }
+    return $ip;
     }
 
     public static function sendNewsData() {
@@ -84,7 +118,7 @@ class Admin
     $link = $_POST['link'];
     $link = str_replace(' ', '-', $link);
     $timestampPost = date("Y-m-d H:i:s");
-    $postQuery = $db->prepare("INSERT INTO news(`id`, `title`, `link`, `img`, `s_descr`, `f_descr`, `timestamp`) VALUES ('', '".$_POST['title']."','".$link."','".$target_file."','".$_POST['s_descr']."','".$_POST['f_descr']."' ,'".$timestampPost."')");
+    $postQuery = $db->prepare("INSERT INTO news(`id`, `title`, `link`, `img`, `s_descr`, `f_descr`, `timestamp`) VALUES ('', '".htmlspecialchars($_POST['title'])."','".$link."','".$target_file."','".htmlspecialchars($_POST['s_descr'])."','".htmlspecialchars($_POST['f_descr'])."' ,'".$timestampPost."')");
     $postQuery->execute();
 //    echo $target_file;
     header("Refresh: 2, ../panel");

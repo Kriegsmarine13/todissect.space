@@ -14,6 +14,8 @@ class AdminController
 
     public static function actionLogin() {
         Admin::login();
+        Admin::getUserIP();
+        Admin::logTry();
         return true;
     }
 
@@ -41,7 +43,6 @@ class AdminController
     }
 
     public function actionList() {
-
         $newsList = array();
         $newsList = News::getNewsList();
 
