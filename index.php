@@ -12,8 +12,14 @@
     require_once(ROOT.'/components/Db.php');
 
     //3. Connecting to database
-
-
+//    $page = $_SERVER['REQUEST_URI'];
+//    $thisPage = explode($page, '/');
+//    $thisPage = $thisPage[2];
+//    if($thisPage !== 'welcome') {
+//        if (!isset($_COOKIE['Authorized'])) {
+//            header('Location: /welcome');
+//        }
+//    }
     //4. Calling Router
     $router = new Router();
     $router->run();

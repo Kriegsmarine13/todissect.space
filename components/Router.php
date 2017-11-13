@@ -50,6 +50,25 @@ class Router
                     include_once($controllerFile);
                 } else { echo "FILES DOES NOT EXIST";}
 
+                //ACCESS RESTRICTON! If user is asking for any page
+                //except login page
+                //then check his login cookie
+                //if there is not - redirect to login page
+                if($uri !== 'welcome'){
+                    if(!isset($_COOKIE['Authorized'])){
+                        header('Location: /welcome');
+                    }
+                }
+
+                //Admin page access restriction
+                //Checking cookie for access to admin page like admin/list or /panel
+                //if no cookie - redirects to admin login page
+                if(preg_match("/^admin\/[a-zA-Z0-9_-]+$/i", $uri) || preg_match('/panel/i', $uri)){
+//                if($uri == 'admin/([a-zA-Z0-9_-]+)' || $uri == 'panel'){
+                    if(!isset($_COOKIE['Name'])){
+                        header('Location: /admin');
+                    }
+                }
 
                 //create object, call method
                 $controllerObject = new $controllerName;
@@ -60,4 +79,5 @@ class Router
             }
         }
     }
+
 }
