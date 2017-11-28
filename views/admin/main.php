@@ -8,7 +8,7 @@
 <h1>Welcome, <?php echo($_COOKIE["Name"]); ?></h1>
 <div class="left-menu">
     <ul>
-        <li><a href="/admin/add_news.php">Добавление новости</a></li>
+        <li><a href="/admin/Add_news">Добавление новости</a></li>
         <li><a href="/admin/list">Список новостей</a></li>
         <li>Вариант 3</li>
     </ul>
